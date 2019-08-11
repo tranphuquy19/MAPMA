@@ -1,6 +1,6 @@
 # Make Android phone more Awesome MAPMA 
 
-https://github.com/tranphuquy19/MAPMA.git (link git của mình ở đây nhé) :)
+https://github.com/tranphuquy19/MAPMA.git (link git của mình ở đây nhé)
 
 - Xin chào tất cả các bạn, hôm nay mình sẽ hướng dẫn các bạn cách setup Android phone chạy như 1 hosting hay vps server cho các ứng dụng web (node, java, ruby, python, vv...). Xa hơn nữa các bạn có thể setup mql sql-lite, ngnix, apache2 bla bla
 
@@ -13,7 +13,7 @@ https://github.com/tranphuquy19/MAPMA.git (link git của mình ở đây nhé) 
 
 ## Cài ứng dụng Termux trên Android 
 
-- (link Termux)[https://play.google.com/store/apps/details?id=com.termux&hl=vi]
+- [link Termux](https://play.google.com/store/apps/details?id=com.termux&hl=vi)
 - Giới thiệu sơ qua về Termux app, thì đây là ứng dụng tương tự như Terminal chúng ta hay dùng trên Ubuntu hay các distro Linux khác vậy, nhưng cái hay là chúng hỗ trợ môi trường Linux thông qua trình package đi kèm. Các bạn có thể tham khảo về termux trên Github (open-source mà).
 - Trong bài này mình thực hiện test trên con xiaomi redmi note 4 (mido / rooted), chưa root vẫn được nhé, nhưng cực cái là các bạn ko duyệt file trên đt được. Ok let's go
 
