@@ -137,6 +137,6 @@ $ pm2 start ./bin/www
 
 ![demo](https://snag.gy/HFVz3e.jpg)
 
-![https://snag.gy/d0IjNb.jpg)
+![demo](https://snag.gy/d0IjNb.jpg)
 
 
