@@ -31,9 +31,9 @@ apt install openssh
 
 - Đầu tiên chúng ta phải coi user hiện tại là gì đã. Có 3 cách là
 
-1. ```$ pwd `` 		print working directory
+1. ```$ pwd ``` 		print working directory
 2. ```$ echo $HOME ``` 	In biến HOME ra 
-3. ```$ whoami `` 		WHO AM I?
+3. ```$ whoami ``` 		WHO AM I?
 
 username của mình là u0_a173
 
@@ -69,9 +69,11 @@ Working with packages:
  * Upgrade packages:  pkg upgrade
 
 - Trong bài này mình sẽ setup node js với express framework 
+
 ```$ apt install nodejs```
 
 - Kiểm tra version hiện tại của Node và NPM
+
 ```$ node -v && npm -v```
 
 - Tạo 1 trang web với express nha, tạo trên Ubuntu sau đó deploy qua github 
@@ -94,6 +96,7 @@ $ git push -u origin master
 - Các commands bên trên là toàn bộ thiết lập mới cho Ubuntu dành cho bạn nào chưa biết 
 
 - Setup git cho Android phone
+
 ```$ apt install git```
 
 
