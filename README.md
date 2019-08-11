@@ -76,12 +76,56 @@ Working with packages:
 
 - Tạo 1 trang web với express nha, tạo trên Ubuntu sau đó deploy qua github 
 
+Thao tác tại PC ko phải với Android phone qua ssh
+
+```shell
+sudo apt-get update && sudo apt-get upgrade -y
+sudo apt-get install nodejs
+npm install express
+npm install express-generator
+express --ejs MAPMA
+cd MAPMA
+git init
+git add .
+git commit -m "first commit"
+git remote add origin https://github.com/<username>/<your-repo>.git
+git push -u origin master
+```
+- Các commands bên trên là toàn bộ thiết lập mới cho Ubuntu dành cho bạn nào chưa biết 
+
+- Setup git cho Android phone
+```apt install git```
 
 
 
 ## Deploy
 
+- Clone repo từ github về
+```shell
+git clone https://github.com/<username>/<your-repo>.git
+cd <your-repo>
+npm install 
+npm start
+```
+Note: Các bạn có thể setup Express chạy ngầm (deamon) thông qua ForeverJS hoặc PM2. Cú pháp
+1. Forever JS
 
+- Start 
+```shell
+npm install -g forever 
+forever start ./bin/www
+```
+
+- Stop
+```shell
+forever stopall
+```
+
+2. PM2 
+```shell
+npm install -g pm2 
+pm2 start ./bin/www
+```
 
 
 
