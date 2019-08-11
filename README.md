@@ -31,23 +31,23 @@ apt install openssh
 
 - Đầu tiên chúng ta phải coi user hiện tại là gì đã. Có 3 cách là
 
-1. ```pwd`` 		print working directory
-2. ```echo $HOME``` 	In biến HOME ra 
-3. ```whoami`` 		WHO AM I?
+1. ```$ pwd `` 		print working directory
+2. ```$ echo $HOME ``` 	In biến HOME ra 
+3. ```$ whoami `` 		WHO AM I?
 
 username của mình là u0_a173
 
 - 1. Set password cho account. Như linux thôi 
 
-```passwd <username>```	Ví dụ: ```passwd u0_a173``` Nhập pass 2 lần nhá.
-```sshd``` để start ssh server 
+```$ passwd <username>```	Ví dụ: ```$ passwd u0_a173``` Nhập pass 2 lần nhá.
+```$ sshd``` để start ssh server 
 
 
 ## Connect SSH đến Android phone
 
 - Test thử xem sao? Mở terminal trên Ubuntu lên, trên windows có thể sử dụng powershell nha!
 
-```ssh -p 8022 u0_a173@192.168.1.102```
+```$ ssh -p 8022 u0_a173@192.168.1.102```
 
 - Giải thích chút xíu về command trên, `-p 8022` là port ssh trên Android phone, nghe hơi sai sai, thông thường thì ssh start ở port 21/22, nhưng trên Android phone thì Termux map nó ở port 8022, `u0_a173` là username lúc nãy, ```192.168.1.102``` là ip trong mạng LAN (wifi), muốn biết thì vào settings >> WIFI bấm vào wifi đang connecting thì lấy được, hoặc vào trang setup của Router wifi >> DHCP là ra.
 
@@ -58,7 +58,7 @@ username của mình là u0_a173
 ## Setup môi trường trên Android phone
 
 - Update lần nữa Android phone
-```apt update && apt upgrade```
+```$ apt update && apt upgrade```
 
 - Một số hướng dẫn thao tác với Termux
 
@@ -69,32 +69,32 @@ Working with packages:
  * Upgrade packages:  pkg upgrade
 
 - Trong bài này mình sẽ setup node js với express framework 
-```apt install nodejs```
+```$ apt install nodejs```
 
 - Kiểm tra version hiện tại của Node và NPM
-```node -v && npm -v```
+```$ node -v && npm -v```
 
 - Tạo 1 trang web với express nha, tạo trên Ubuntu sau đó deploy qua github 
 
 Thao tác tại PC ko phải với Android phone qua ssh
 
 ```shell
-sudo apt-get update && sudo apt-get upgrade -y
-sudo apt-get install nodejs
-npm install express
-npm install express-generator
-express --ejs MAPMA
-cd MAPMA
-git init
-git add .
-git commit -m "first commit"
-git remote add origin https://github.com/<username>/<your-repo>.git
-git push -u origin master
+$ sudo apt-get update && sudo apt-get upgrade -y
+$ sudo apt-get install nodejs
+$ npm install express
+$ npm install express-generator
+$ express --ejs MAPMA
+$ cd MAPMA
+$ git init
+$ git add .
+$ git commit -m "first commit"
+$ git remote add origin https://github.com/<username>/<your-repo>.git
+$ git push -u origin master
 ```
 - Các commands bên trên là toàn bộ thiết lập mới cho Ubuntu dành cho bạn nào chưa biết 
 
 - Setup git cho Android phone
-```apt install git```
+```$ apt install git```
 
 
 
@@ -102,29 +102,29 @@ git push -u origin master
 
 - Clone repo từ github về
 ```shell
-git clone https://github.com/<username>/<your-repo>.git
-cd <your-repo>
-npm install 
-npm start
+$ git clone https://github.com/<username>/<your-repo>.git
+$ cd <your-repo>
+$ npm install 
+$ npm start
 ```
 Note: Các bạn có thể setup Express chạy ngầm (deamon) thông qua ForeverJS hoặc PM2. Cú pháp
 1. Forever JS
 
 - Start 
 ```shell
-npm install -g forever 
-forever start ./bin/www
+$ npm install -g forever 
+$ forever start ./bin/www
 ```
 
 - Stop
 ```shell
-forever stopall
+$ forever stopall
 ```
 
 2. PM2 
 ```shell
-npm install -g pm2 
-pm2 start ./bin/www
+$ npm install -g pm2 
+$ pm2 start ./bin/www
 ```
 
 
