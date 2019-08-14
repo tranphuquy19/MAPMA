@@ -7,7 +7,7 @@ module.exports = (io) => {
     //     socket.on('clickEvent', (data) => {
     //         console.log(socket.id + ' send:' + data);
     //         setInterval((data)=>{
-    //             io.sockets.emit('server-response', 'xxx')
+    //             io.sockets.emit('server-response', 'client emit')
     //         }, 3000)
     //     })
 
