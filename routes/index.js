@@ -1,9 +1,14 @@
-var express = require('express');
-var router = express.Router();
+var deviceInfo = require('../controllers/deviceController');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'MAPMA - Make Android phone more Awesome!' });
-});
-
-module.exports = router;
+module.exports = (io) => {
+    var express = require('express');
+    var router = express.Router();
+    io.on('connection', (socket) => {
+        console.log(socket.id);
+        socket.on('disconnect', () => {
+            console.log(socket.id + " disconnected");
+        })
+    })
+    router.get('/', deviceInfo.node_info)
+    return router;
+}
