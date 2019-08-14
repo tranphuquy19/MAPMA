@@ -5,10 +5,17 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var socket_io = require('socket.io')
 
+var deviceInfoController = require('./controllers/deviceController')
+
 var app = express();
 
 var io = socket_io();
 app.io = io;
+
+setInterval(()=>{
+  var data = deviceInfoController.node_info;
+  io.sockets.emit('server-response', data);
+}, 3000);
 
 /**
  * Send io var to routes
