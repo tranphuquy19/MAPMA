@@ -14,6 +14,7 @@ app.io = io;
 
 setInterval(()=>{
   var data = deviceInfoController.node_info;
+  data.totalclient = io.engine.clientsCount;
   io.sockets.emit('server-response', data);
 }, 3000);
 

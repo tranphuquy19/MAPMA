@@ -7,7 +7,8 @@
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="socket.io/socket.io.js"></script>
   <script>
-    var socket = io('http://192.168.1.102:3000');
+    var url_origin = window.location.origin;
+    var socket = io(url_origin);
     socket.on('server-response', (data) => {
       console.log(data);
     })
