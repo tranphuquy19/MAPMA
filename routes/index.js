@@ -8,9 +8,9 @@ module.exports = (io) => {
             io.sockets.emit('mess', {id: socket.id.slice(0, 5), mess: data});
         })
 
-        // socket.on('disconnect', () => {
-        //     console.log(socket.id + ' disconnected');
-        // })
+        socket.on('disconnect', () => {
+            io.sockets.emit('mess', {id: socket.id.slice(0, 5), mess: 'is disconnected!'});
+        })
 
 
     })
