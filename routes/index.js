@@ -4,7 +4,7 @@ module.exports = (io) => {
     var express = require('express');
     var router = express.Router();
     io.on('connection', (socket) => {
-        socket.on('chatAll', (data)=>{
+        socket.on('BN9ziWLi4nIzkuRK', (data)=>{
             io.sockets.emit('mess', {id: socket.id.slice(0, 5), mess: data});
         })
 
