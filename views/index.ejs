@@ -4,6 +4,23 @@
 <head>
   <title><%= title %></title>
   <link rel='stylesheet' href='/stylesheets/style.css' />
+  <style>
+    body {
+      font-family: Menlo, Consolas, monospace;
+      color: #444;
+    }
+
+    table,
+    th,
+    td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+
+    #totalconnections{
+      font-weight: bold;
+    }
+  </style>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="socket.io/socket.io.js"></script>
   <script>
@@ -11,19 +28,99 @@
     var socket = io(url_origin);
     socket.on('server-response', (data) => {
       console.log(data);
+      $('#totalconnections').text(data.totalclient);
+      $('#nodeversion').text(data.nodeversion);
+      $('#arch').text(data.arch);
+
+      let { freemem, totalmem } = data;
+      let percent = ((freemem / totalmem) * 100).toFixed(1);
+      let totalmemGB = (totalmem / Math.pow(1024, 3)).toFixed(1);
+      let mem = `${percent}% of ${totalmemGB}GB`;
+      $('#freemem').text(mem);
+
+      $('#homedir').text(data.homedir);
+      $('#hostname').text(data.hostname);
+      $('#platform').text(data.platform);
+      $('#ostype').text(data.ostype);
+      $('#ejsVer').text(data.ejsVer);
+      $('#expressVer').text(data.expressVer);
+      $('#socketioVer').text(data.socketioVer);
     })
     $(document).ready(() => {
-      $('#btnSend').click(() => {
-        socket.emit('clickEvent', 'hello baby');
-      })
+      //....
     });
   </script>
 </head>
 
 <body>
-  <h1><%= title %></h1>
-  <p>Welcome to <%= title %></p>
-  <button id="btnSend">Send</button>
+  <div class="body">
+    <div class="device-info">
+      <table>
+        <tr>
+          <th>Info</th>
+          <th>Values</th>
+        </tr>
+
+        <tr>
+          <td>Total Connections</td>
+          <td id="totalconnections"></td>
+        </tr>
+
+        <tr>
+          <td>Node Ver.</td>
+          <td id="nodeversion"></td>
+        </tr>
+
+        <tr>
+          <td>CPU architecture</td>
+          <td id="arch"></td>
+        </tr>
+
+        <tr>
+          <td>Free Memory</td>
+          <td id="freemem"></td>
+        </tr>
+
+        <tr>
+          <td>Home Dir.</td>
+          <td id="homedir"></td>
+        </tr>
+
+        <tr>
+          <td>Host Name</td>
+          <td id="hostname"></td>
+        </tr>
+
+        <tr>
+          <td>Platform</td>
+          <td id="platform"></td>
+        </tr>
+
+        <tr>
+          <td>OS Type</td>
+          <td id="ostype"></td>
+        </tr>
+
+        <tr>
+          <td>Express Ver.</td>
+          <td id="expressVer"></td>
+        </tr>
+
+        <tr>
+          <td>EJS Ver.</td>
+          <td id="ejsVer"></td>
+        </tr>
+
+        <tr>
+          <td>SocketIO Ver.</td>
+          <td id="socketioVer"></td>
+        </tr>
+      </table>
+    </div>
+    <div class="chat-realtime">
+
+    </div>
+  </div>
 </body>
 
 </html>
