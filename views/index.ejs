@@ -51,7 +51,7 @@
   <script>
     var url_origin = window.location.origin;
     var socket = io(url_origin);
-    var d = new Date();
+    
 
     socket.on('server-response', (data) => {
       console.log(data);
@@ -75,6 +75,7 @@
     })
 
     socket.on('mess', (data) => {
+      let d = new Date();
       let time = d.toLocaleTimeString();
       let messages = `[${time}]\n\t${data.id}: ${data.mess} \n`
       $('#chat-context').append(messages);
