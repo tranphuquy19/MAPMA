@@ -14,7 +14,6 @@ I. [Phần một -  Setup Android phone](#)
   7. [Enjoy!!!](#user-content-enjoy)
 ---
 
-- Xin chào tất cả các bạn, hôm nay mình sẽ hướng dẫn các bạn cách setup Android phone chạy như 1 hosting hay vps server cho các ứng dụng web (node, java, ruby, python, vv...). Xa hơn nữa các bạn có thể setup mql sql-lite, ngnix, apache2 bla bla
 
 ## Chuẩn bị
 
