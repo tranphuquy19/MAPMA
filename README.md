@@ -162,16 +162,16 @@ $ pm2 start ./bin/www
 ![demo](/public/images/img3.png?raw=true "Optional Title")
 
 
-# Phần hai
+# II. Phần hai
 
 Trong phần này mình sẽ nói rất nhiều về việc *làm thế nào để đưa localhost lên Internet*. Deploy thành quả của mình để chạy một cách ngon lành trên mạng. 
 
 
-## Kỹ thuật tunneling
+## 1. Kỹ thuật tunneling
 
 - Về bản chất, đây là quá trình đặt toàn bộ gói tin vào trong một lớp header (tiêu đề) chứa thông tin định tuyến có thể truyền qua hệ thống mạng trung gian theo những "đường ống" riêng (tunnel).
 - Khi gói tin được truyền đến đích, chúng được tách lớp header và chuyển đến các máy trạm cuối cùng cần nhận dữ liệu. Để thiết lập kết nối Tunnel, máy khách và máy chủ phải sử dụng chung một giao thức (tunnel protocol).
-- Để dễ hình dung hơn thì đây giống như bọc 1 lá thư trong 1 lá thư khác, thay vì gửi cho **anh ABC** nào đấy thì mình sẽ gửi cho **anh đưa thư** với *địa chỉ anh đưa thư* ghi trên **bì thư ngoài**. Sau đó **anh đưa thư** nhận được, bóc và gửi đến *địa chỉ* của **anh ABC** đã ghi ở **lá thư bên trong***...
+- Để dễ hình dung hơn thì đây giống như bọc 1 lá thư trong 1 lá thư khác, thay vì gửi cho **anh ABC** nào đấy thì mình sẽ gửi cho **anh đưa thư** với *địa chỉ anh đưa thư* ghi trên **bì thư ngoài**. Sau đó **anh đưa thư** nhận được, bóc và gửi đến *địa chỉ của anh ABC* đã ghi ở **lá thư bên trong***...
 - Điển hình cho việc sử dụng giao thức này đó chính là mạng riêng ảo VPN (Virtual Private Network) [Wikipedia](https://vi.wikipedia.org/wiki/M%E1%BA%A1ng_ri%C3%AAng_%E1%BA%A3o). Đừng nhầm lẫn giữa **VPN** và **Tunneling** nha, vì **Tunneling** là một giao thức (protocol) còn **VPN** là 1 khái niệm (concept).
 
 ![vpn.vs.tunneling](/public/images/img4.gif?raw=true "Optional Title")
