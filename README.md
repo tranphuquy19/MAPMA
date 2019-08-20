@@ -9,7 +9,9 @@ I. [Phần một -  Setup](#)
      - [Install Open SSH](#user-content-install-open-ssh)
      - [Setup SSH](#user-content-setup-ssh)
   4. [Connect SSH đến Android phone](#user-content-connect-ssh-đến-android-phone)
-
+  5. [Setup môi trường trên Android phone](#user-content-setup-môi-trường-trên-android-phone)
+  6. [Deploy](#user-content-deploy)
+  7. [Enjoy!!!](#user-content-enjoy)
 ---
 
 - Xin chào tất cả các bạn, hôm nay mình sẽ hướng dẫn các bạn cách setup Android phone chạy như 1 hosting hay vps server cho các ứng dụng web (node, java, ruby, python, vv...). Xa hơn nữa các bạn có thể setup mql sql-lite, ngnix, apache2 bla bla
