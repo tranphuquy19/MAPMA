@@ -6,12 +6,9 @@ I. [Phần một -  Setup](#)
   1. [Chuẩn bị](#user-content-chuẩn-bị)
   2. [Cài ứng dụng Termux trên Android](#user-content-cài-ứng-dụng-termux-trên-android)
   3. [Setup Authen cho SSH](#user-content-setup-authen-cho-ssh)
-    3.1 [Install Open SSH](#user-content-install-open-ssh)
-    3.2 [Setup SSH](#user-content-setup-ssh)
-  4. [](#)
-  5. [](#)
-  6. [](#)
-  7. [](#)
+    * [Install Open SSH](#user-content-install-open-ssh)
+    * [Setup SSH](#user-content-setup-ssh)
+
 
 ---
 
