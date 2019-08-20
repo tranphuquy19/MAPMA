@@ -2,11 +2,12 @@
 
 https://github.com/tranphuquy19/MAPMA.git (link git của mình ở đây nhé)
 
-- [Chuẩn bị](https://github.com/tranphuquy19/MAPMA#c%C3%A0i-%E1%BB%A9ng-d%E1%BB%A5ng-termux-tr%C3%AAn-android)
+I. [Phần một -  Setup](#)
+  1. [Chuẩn bị](#user-content-chuẩn-bị)
+  2. [Cài ứng dụng Termux trên Android](#user-content-cài-ứng-dụng-termux-trên-android)
+  3. [Setup Authen cho SSH](#user-content-setup-authen-cho-ssh)
 
 ---
-
-
 
 - Xin chào tất cả các bạn, hôm nay mình sẽ hướng dẫn các bạn cách setup Android phone chạy như 1 hosting hay vps server cho các ứng dụng web (node, java, ruby, python, vv...). Xa hơn nữa các bạn có thể setup mql sql-lite, ngnix, apache2 bla bla
 
