@@ -25,22 +25,23 @@ II. [Phần hai - Public your website](#)
      -  [Orther DNS Services](#)
 ---
 
+# I. Phần 1
 
-## Chuẩn bị
+## 1. Chuẩn bị
 
 1. Android phone (đã rooted hoặc chưa cũng được)
 2. Laptop/PC 
 3. Cả 2 thiết bị trên cùng kết nối chung mạng wifi
 4. Và một chút kiến thức về Linux 
 
-## Cài ứng dụng Termux trên Android 
+## 2. Cài ứng dụng Termux trên Android 
 
 - [link Termux](https://play.google.com/store/apps/details?id=com.termux&hl=vi)
 - Giới thiệu sơ qua về Termux app, thì đây là ứng dụng tương tự như Terminal chúng ta hay dùng trên Ubuntu hay các distro Linux khác vậy, nhưng cái hay là chúng hỗ trợ môi trường Linux thông qua trình package đi kèm. Các bạn có thể tham khảo về termux trên Github (open-source mà).
 - Trong bài này mình thực hiện test trên con xiaomi redmi note 4 (mido / rooted), chưa root vẫn được nhé, nhưng cực cái là các bạn ko duyệt file trên đt được. Ok let's go
 
 
-## Setup Authen cho SSH
+## 3. Setup Authen cho SSH
 
 ### Install Open SSH
 - Đầu tiên chúng ta phải setup ssh cho nó cái đã. Chạy lệnh sau 
@@ -65,7 +66,7 @@ username của mình là u0_a173
 ```$ sshd``` để start ssh server 
 
 
-## Connect SSH đến Android phone
+## 4. Connect SSH đến Android phone
 
 - Test thử xem sao? Mở terminal trên Ubuntu lên, trên windows có thể sử dụng powershell nha!
 
@@ -77,7 +78,7 @@ username của mình là u0_a173
 
 
 
-## Setup môi trường trên Android phone
+## 5. Setup môi trường trên Android phone
 
 - Update lần nữa Android phone
 ```$ apt update && apt upgrade```
@@ -123,7 +124,7 @@ $ git push -u origin master
 
 
 
-## Deploy
+## 5. Deploy
 
 - Clone repo từ github về
 ```shell
@@ -154,7 +155,7 @@ $ pm2 start ./bin/www
 
 
 
-## Enjoy!!!
+## 7. Enjoy!!!
 ![demo](/public/images/img1.png?raw=true "Optional Title")
 
 ![demo](/public/images/img2.png?raw=true "Optional Title")
