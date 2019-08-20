@@ -2,7 +2,7 @@
 
 https://github.com/tranphuquy19/MAPMA.git (link git của mình ở đây nhé)
 
-I. [Phần một -  Setup](#)
+I. [Phần một -  Setup Android phone](#)
   1. [Chuẩn bị](#user-content-chuẩn-bị)
   2. [Cài ứng dụng Termux trên Android](#user-content-cài-ứng-dụng-termux-trên-android)
   3. [Setup Authen cho SSH](#user-content-setup-authen-cho-ssh)
