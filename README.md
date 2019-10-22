@@ -1,5 +1,5 @@
 # Make Android phone more Awesome MAPMA 
-- Bài viết gồm 2 phần, phần 1 hướng dẫn cách setup một Webserver trên android phone, phần 2 là hướng dẫn cách public Webserver lên Internet
+- Bài viết gồm 2 phần, phần 1 hướng dẫn cách setup một Webserver trên android phone, phần 2 là hướng dẫn cách public Webserver lên Internet. Mọi copy xin để nguồn tranphuquy19 email:tranphuquy19@gmail.com
 https://github.com/tranphuquy19/MAPMA.git (link git của mình ở đây nhé)
 
 I. [Phần một -  Setup Android phone](#)
