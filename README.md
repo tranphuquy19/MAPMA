@@ -39,7 +39,7 @@ Note: Trong bài viết mình deploy web server chạy NodeJS, đối với nề
 ## 2. Cài ứng dụng Termux trên Android 
 
 - [link Termux](https://play.google.com/store/apps/details?id=com.termux&hl=vi)
-- Giới thiệu sơ qua về Termux app, thì đây là ứng dụng tương tự như Terminal chúng ta hay dùng trên Ubuntu hay các distro Linux khác vậy, nhưng cái hay là chúng hỗ trợ môi trường Linux thông qua trình package đi kèm. Các bạn có thể tham khảo về termux trên Github (open-source).
+- Giới thiệu sơ qua về Termux app, thì đây là ứng dụng tương tự như Terminal chúng ta hay dùng trên Ubuntu hay các distro Linux khác vậy, nhưng cái hay là chúng hỗ trợ môi trường Linux thông qua trình quản lí packages đi kèm. Các bạn có thể tham khảo về termux trên Github (open-source). Xem thêm về các Packages Termux hỗ trợ [tại đây](https://github.com/termux/termux-packages/tree/master/packages)
 - Trong bài này mình thực hiện test trên con xiaomi redmi note 4 (mido / rooted), chưa root vẫn được nhé, nhưng cực cái là các bạn ko duyệt file trên đt được. Còn source code thì được dev trên laptop chạy ubuntu và deploy thông qua github. Let's go
 
 
