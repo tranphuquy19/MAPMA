@@ -32,13 +32,15 @@ II. [Phần hai - Public your website](#ii-phần-hai)
 1. Android phone (đã rooted hoặc chưa cũng được)
 2. Laptop/PC 
 3. Cả 2 thiết bị trên cùng kết nối chung mạng wifi
-4. Và một chút kiến thức về Linux 
+4. Và một chút kiến thức về Linux, git
+
+Note: Trong bài viết mình deploy web server chạy NodeJS, đối với nền tảng các bạn chỉ cần setup trên android tới bước 5 là đủ
 
 ## 2. Cài ứng dụng Termux trên Android 
 
 - [link Termux](https://play.google.com/store/apps/details?id=com.termux&hl=vi)
-- Giới thiệu sơ qua về Termux app, thì đây là ứng dụng tương tự như Terminal chúng ta hay dùng trên Ubuntu hay các distro Linux khác vậy, nhưng cái hay là chúng hỗ trợ môi trường Linux thông qua trình package đi kèm. Các bạn có thể tham khảo về termux trên Github (open-source mà).
-- Trong bài này mình thực hiện test trên con xiaomi redmi note 4 (mido / rooted), chưa root vẫn được nhé, nhưng cực cái là các bạn ko duyệt file trên đt được. Ok let's go
+- Giới thiệu sơ qua về Termux app, thì đây là ứng dụng tương tự như Terminal chúng ta hay dùng trên Ubuntu hay các distro Linux khác vậy, nhưng cái hay là chúng hỗ trợ môi trường Linux thông qua trình package đi kèm. Các bạn có thể tham khảo về termux trên Github (open-source).
+- Trong bài này mình thực hiện test trên con xiaomi redmi note 4 (mido / rooted), chưa root vẫn được nhé, nhưng cực cái là các bạn ko duyệt file trên đt được. Còn source code thì được dev trên laptop chạy ubuntu và deploy thông qua github. Let's go
 
 
 ## 3. Setup Authen cho SSH
@@ -58,7 +60,7 @@ apt install openssh
 2. ```$ echo $HOME ``` 	In biến HOME ra 
 3. ```$ whoami ``` 		WHO AM I?
 
-username của mình là u0_a173
+=> username của mình là u0_a173
 
 - 1. Set password cho account. Như linux thôi 
 
@@ -72,11 +74,9 @@ username của mình là u0_a173
 
 ```$ ssh -p 8022 u0_a173@192.168.1.102```
 
-- Giải thích chút xíu về command trên, `-p 8022` là port ssh trên Android phone, nghe hơi sai sai, thông thường thì ssh start ở port 21/22, nhưng trên Android phone thì Termux map nó ở port 8022, `u0_a173` là username lúc nãy, ```192.168.1.102``` là ip trong mạng LAN (wifi), muốn biết thì vào settings >> WIFI bấm vào wifi đang connecting thì lấy được, hoặc vào trang setup của Router wifi >> DHCP là ra.
+- Giải thích chút xíu về command trên, `-p 8022` là port ssh trên Android phone, nghe hơi sai sai, thông thường thì ssh start ở port 21/22, nhưng trên Android phone thì Termux map nó ở port 8022, `u0_a173` là username lúc nãy, ```192.168.1.102``` là ip trong mạng LAN (wifi), muốn biết thì vào settings >> WIFI bấm vào wifi đang connecting thì lấy được, hoặc vào trang setup của Router wifi >> DHCP Lease Information là ra.
 
 - Từ lúc này mình setup ko cần động đến đt nữa, mọi thao tác sẽ qua ssh trên Ubuntu terminal cho tiện, sau bài này mình sẽ hướng dẫn connect đến android phone thông qua Internet/3G.4G đều được, public server web...
-
-
 
 ## 5. Setup môi trường trên Android phone
 
@@ -87,8 +87,8 @@ username của mình là u0_a173
 
 Working with packages:
 
- * Search packages:   pkg search <query>
- * Install a package: pkg install <package>
+ * Search packages:   pkg search [query]
+ * Install a package: pkg install [packages]
  * Upgrade packages:  pkg upgrade
 
 - Trong bài này mình sẽ setup node js với express framework 
@@ -99,7 +99,9 @@ Working with packages:
 
 ```$ node -v && npm -v```
 
-- Tạo 1 trang web với express nha, tạo trên Ubuntu sau đó deploy qua github 
+- Tạo 1 trang test với express trên laptop nha, sau đó deploy qua github.
+
+Note: trong bài viết này mình coi như là bạn đã thông thạo Git & Github mình ko giải thích gì thêm!
 
 Thao tác tại PC ko phải với Android phone qua ssh
 
@@ -126,19 +128,31 @@ $ git push -u origin master
 
 ## 5. Deploy
 
-- Clone repo từ github về
+- Clone repo phía trên từ github về
 ```shell
 $ git clone https://github.com/<username>/<your-repo>.git
 $ cd <your-repo>
 $ npm install 
 $ npm start
 ```
+- Hoặc bạn có thể clone Project demo của mình
+```shell
+$ git clone https://github.com/tranphuquy19/MAPMA.git
+$ cd MAPMA
+$ npm install 
+$ npm start
+```
+
 Note: Các bạn có thể setup Express chạy ngầm (deamon) thông qua ForeverJS hoặc PM2. Cú pháp
 1. Forever JS
 
+- Install
+```shell
+$ npm install -g forever
+```
+
 - Start 
 ```shell
-$ npm install -g forever 
 $ forever start ./bin/www
 ```
 
@@ -148,15 +162,24 @@ $ forever stopall
 ```
 
 2. PM2 
+
+- Install
 ```shell
 $ npm install -g pm2 
+```
+
+- Start
+```shell
 $ pm2 start ./bin/www
 ```
 
-
+- Stop
+```shell
+$ pm2 stop all
+```
 
 ## 7. Enjoy!!!
-![demo](/public/images/img1.png?raw=true "Optional Title")
+![demo](/public/images/img5.png?raw=true "Trang demo trên điện thoại sẽ như thế này")
 
 ![demo](/public/images/img2.png?raw=true "Optional Title")
 
@@ -214,7 +237,7 @@ Ngrok sẽ lắng nghe ở địa chỉ `http://localhost:3000`; **3000** chính
 
 ```shell
 $ sudo npm install localtunnel -g
-$ lt --port 3000
+$ lt -p 3000 -h http://localtunnel.me --local-https false
 ```
 
-- Về cách thức hoạt động thì nó y chang như **ngrok** như đã giới thiệu ở trên. Tuy nhiên thì mình hay dùng **localtunnel** hơn vì nó đơn giản cũng như thời gian kết nối lâu hơn **ngrok**.
+- Về cách thức hoạt động thì nó y chang như **ngrok** như đã giới thiệu ở trên. Tuy nhiên thì mình hay dùng **localtunnel** hơn vì nó đơn giản cũng như thời gian duy trì kết nối lâu hơn **ngrok**.
