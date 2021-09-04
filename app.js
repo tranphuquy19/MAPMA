@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var socket_io = require('socket.io')
+var socket_io = require('socket.io');
 
 var deviceInfoController = require('./controllers/deviceController')
 
@@ -16,7 +16,7 @@ setInterval(()=>{
   var data = deviceInfoController.node_info;
   data.totalclient = io.engine.clientsCount;
   io.sockets.emit('server-response', data);
-}, 3000);
+}, 500);
 
 /**
  * Send io var to routes

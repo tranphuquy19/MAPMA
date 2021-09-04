@@ -2,7 +2,9 @@
 <html>
 
 <head>
-  <title><%= title %></title>
+  <title>
+    <%= title %>
+  </title>
   <meta name="viewport" content="width=device-width, user-scalable=no">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -16,7 +18,7 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-  <script src="socket.io/socket.io.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
   <style>
     body {
       font-family: Menlo, Consolas, monospace;
@@ -37,24 +39,41 @@
     }
 
     #chat-context {
+      border: slateblue 1px solid;
+      min-height: 250px;
+      max-height: 250px;
       overflow-y: scroll;
-      resize: nome;
     }
 
-    #chat-context,
     #txtChat,
     #information {
       width: 100%;
-      margin: 0.8em;
+      margin-top: 0.8em;
     }
   </style>
   <script>
     var url_origin = window.location.origin;
     var socket = io(url_origin);
-    
+
+    function encodeStr(str) {
+      return str.replace(/[\u00A0-\u9999<>\&]/g, function (i) {
+        return '&#' + i.charCodeAt(0) + ';';
+      });
+    }
+
+    function makeId(length) {
+      var result = '';
+      var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+      var charactersLength = characters.length;
+      for (var i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() *
+          charactersLength));
+      }
+      return result;
+    }
 
     socket.on('server-response', (data) => {
-      console.log(data);
+      // console.log(data);
       $('#totalconnections').text(data.totalclient);
       $('#nodeversion').text(data.nodeversion);
       $('#arch').text(data.arch);
@@ -77,24 +96,32 @@
     socket.on('mess', (data) => {
       let d = new Date();
       let time = d.toLocaleTimeString();
-      let messages = `[${time}]\n\t${data.id}: ${data.mess} \n`
+      let newId = makeId(5);
+      let messages = `<div style="border-bottom: black 1px solid; margin: 0px 2px; cursor: copy;" id="${newId}" data-toggle="tooltip" title="Copy to clipboard!"><b>[${time}]-${data.id}</b>: <pre><code style="color: SlateBlue;">${encodeStr(data.mess)}</code></pre></div>`
       $('#chat-context').append(messages);
+      $(`#${newId}`).click(() => {
+        var $temp = $(`<textarea value="${data.mess}"></textarea>`);
+        $("body").append($temp);
+        $temp.val(data.mess).select();
+        document.execCommand("copy");
+        $temp.remove();
+      })
       $('#chat-context').scrollTop(document.getElementById('chat-context').scrollHeight);
     });
 
     $(document).ready(() => {
       $('#txtChat').on("keypress", (e) => {
         if (e.keyCode == 13) {
-          let m = $.trim($('#txtChat').val());
+          let m = $('#txtChat').val();
           if ('' != m) {
-            // khi custom this code bạn phải chịu hoàn toàn mọi trách nhiệm của mình
             socket.emit('BN9ziWLi4nIzkuRK', m);
             $('#txtChat').val('');
           }
           return false;
         }
       });
-
+      $('#raw_messages').text(`curl ${location.host} # Use curl`);
+      $('#curl_messages').text(`bash <(curl -s ${location.host}/1) # Run latest cmd`);
     });
   </script>
 </head>
@@ -102,8 +129,8 @@
 <body>
   <div class="body">
     <div class="row">
-      <h2 class= "col-12"><a href="https://github.com/tranphuquy19/MAPMA.git" target="_blank"><%= title %></a></h2>
-      <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-12">
+      <h2 class="col-12"><a href="https://github.com/tranphuquy19/MAPMA.git" target="_blank"><%= title %> </a></h2>
+      <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
         <table id="information">
           <tr>
             <th>Info</th>
@@ -120,13 +147,13 @@
             <td id="nodeversion"></td>
           </tr>
 
-          <tr>
+          <tr hidden>
             <td>CPU architecture</td>
             <td id="arch"></td>
           </tr>
 
           <tr>
-            <td>Free Memory</td>
+            <td>Memory Usage</td>
             <td id="freemem"></td>
           </tr>
 
@@ -164,12 +191,29 @@
             <td>SocketIO Ver.</td>
             <td id="socketioVer"></td>
           </tr>
+
+          <tr style="text-align: center;">
+            <td colspan="2"><a href="/old_messages" target="_blank"><b>🔗 See old messages</b></a></td>
+          </tr>
+
+          <tr style="text-align: center;">
+            <td colspan="2"><code id="raw_messages" style="font-size: 1em;">curl /raw_messages # To use curl</code></td>
+          </tr>
+
+          <tr style="text-align: center;">
+            <td colspan="2"><code id="curl_messages" style="font-size: 1em;">bash &lt;(curl -s localhost:3000/1) # To run latest cmd</code></td>
+          </tr>
+
+          <tr style="text-align: center;">
+            <td colspan="2"><a href="/docs" target="_blank"><b>📌 See full Documentation</b></a></td>
+          </tr>
+
         </table>
       </div>
-      <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 col-12">
+      <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
         <div class="form-group">
-          <textarea class="form-group" name="chat" id="chat-context" rows="11" readonly></textarea>
-          <input type="text" id="txtChat" placeholder="Press Enter or OK to send real time messages...">
+          <div id="chat-context"></div>
+          <textarea type="text" id="txtChat" placeholder="Press Enter or OK to send your mess..."></textarea>
         </div>
       </div>
     </div>
